@@ -10,15 +10,13 @@ grant select, insert, delete, update on anotacao.* to user@'localhost';
 
 use anotacao;
 
-create table tra_trabalho (
- tra_id bigint primary key auto_increment,
- tra_titulo varchar(100) not null unique,
- tra_data_hora_entrega datetime not null,
- tra_descricao varchar(200),
- tra_grupo varchar(20) not null,
- tra_nota int,
- tra_justificativa varchar(100)
+create table tmp_temperatura (
+    tmp_id bigint primary key auto_increment,
+    tmp_data_hora datetime not null,
+    tmp_medida float not null,
+    tmp_umidade float,
+    tmp_particulas float
 );
-insert into tra_trabalho (tra_titulo, tra_data_hora_entrega, tra_grupo, tra_nota, tra_justificativa)
- values ('Teste 1', current_timestamp(), 'Alpha', 6, 'Bom, mas falta conteúdo'),
- ('Teste 2', current_timestamp(), 'Beta', 3, 'Incompleto');
+insert into tmp_temperatura (tmp_data_hora, tmp_medida, tmp_umidade, tmp_particulas)
+ values ('2023-10-24 10:00', 25.4, null, 31.3),
+        ('2023-10-24 11:00', 26.1, 43.2, null);
